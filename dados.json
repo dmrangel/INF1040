@@ -1,0 +1,41 @@
+{
+  "usuarios": {
+    "u1": {
+      "nome": "davi",
+      "senha": "123",
+      "interesses": [
+        ["acao", 5],
+        ["ficcao", 4]
+      ]
+    },
+    "u2": {
+      "nome": "lis",
+      "senha": "abc",
+      "interesses": []
+    },
+    "u3": {
+      "nome": "bento",
+      "senha": "xyz",
+      "interesses": [
+        ["drama", 3]
+      ]
+    }
+  },
+  "filmes": [
+    {
+      "id": "f1",
+      "nome": "matrix",
+      "generos": ["acao", "ficcao"]
+    },
+    {
+      "id": "f2",
+      "nome": "o auto da compadecida",
+      "generos": ["comedia", "nacional"]
+    },
+    {
+      "id": "f3",
+      "nome": "cidade de deus",
+      "generos": ["drama", "acao"]
+    }
+  ]
+}
