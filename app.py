@@ -4,9 +4,19 @@ import streamlit as st # pyright: ignore[reportMissingImports]
 st.set_page_config(initial_sidebar_state="collapsed")
 
 try:
-    from modules import filme, recomendacoes, pesquisa
+    from modules import filme
 except ImportError:
-    filme = recomendacoes = pesquisa = None
+    filme = None
+
+try:
+	from modules import recomendacoes
+except ImportError:
+    recomendacoes = None
+
+try:
+	from modules import pesquisa
+except ImportError:
+    pesquisa = None
 
 def carregaJson():
 	with open("./dados.json", "r") as f:
