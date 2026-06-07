@@ -1,6 +1,7 @@
 {
   "usuarios": {
     "u1": {
+      "id": "u1",
       "nome": "davi",
       "senha": "123",
       "interesses": [
@@ -9,15 +10,79 @@
       ]
     },
     "u2": {
+      "id": "u2",
       "nome": "lis",
       "senha": "abc",
       "interesses": []
     },
     "u3": {
+      "id": "u3",
       "nome": "bento",
       "senha": "xyz",
       "interesses": [
         ["drama", 3]
+      ]
+    },
+    "u4": {
+      "id": "u4",
+      "nome": "tiago",
+      "senha": "456",
+      "interesses": [
+        ["terror", 4],
+        ["suspense", 5]
+      ]
+    },
+    "u5": {
+      "id": "u5",
+      "nome": "carla",
+      "senha": "789",
+      "interesses": [
+        ["romance", 5],
+        ["comedia", 3]
+      ]
+    },
+    "u6": {
+      "id": "u6",
+      "nome": "nuno",
+      "senha": "qwe",
+      "interesses": [
+        ["acao", 4],
+        ["aventura", 4]
+      ]
+    },
+    "u7": {
+      "id": "u7",
+      "nome": "sofia",
+      "senha": "rty",
+      "interesses": [
+        ["documentario", 5]
+      ]
+    },
+    "u8": {
+      "id": "u8",
+      "nome": "miguel",
+      "senha": "uio",
+      "interesses": [
+        ["nacional", 4],
+        ["comedia", 4]
+      ]
+    },
+    "u9": {
+      "id": "u9",
+      "nome": "pedro",
+      "senha": "asd",
+      "interesses": [
+        ["ficcao", 5],
+        ["suspense", 4]
+      ]
+    },
+    "u10": {
+      "id": "u10",
+      "nome": "ines",
+      "senha": "fgh",
+      "interesses": [
+        ["animacao", 5],
+        ["aventura", 5]
       ]
     }
   },
@@ -36,6 +101,51 @@
       "id": "f3",
       "nome": "cidade de deus",
       "generos": ["drama", "acao"]
+    },
+    {
+      "id": "f4",
+      "nome": "o senhor dos aneis",
+      "generos": ["aventura", "fantasia"]
+    },
+    {
+      "id": "f5",
+      "nome": "o poderoso chefao",
+      "generos": ["drama", "policial"]
+    },
+    {
+      "id": "f6",
+      "nome": "interestelar",
+      "generos": ["ficcao", "drama"]
+    },
+    {
+      "id": "f7",
+      "nome": "clube da luta",
+      "generos": ["drama", "suspense"]
+    },
+    {
+      "id": "f8",
+      "nome": "o iluminado",
+      "generos": ["terror", "suspense"]
+    },
+    {
+      "id": "f9",
+      "nome": "toy story",
+      "generos": ["animacao", "aventura"]
+    },
+    {
+      "id": "f10",
+      "nome": "vingadores",
+      "generos": ["acao", "aventura"]
+    },
+    {
+      "id": "f11",
+      "nome": "parasita",
+      "generos": ["suspense", "drama"]
+    },
+    {
+      "id": "f12",
+      "nome": "central do brasil",
+      "generos": ["drama", "nacional"]
     }
   ]
 }
