@@ -1,12 +1,8 @@
-def buscaFilme(dados, nomeFilme):
-	if dados:
-		if nomeFilme:
-			filmes = dados["filmes"]
-			if filmes:
-				for filme in filmes:
-					if filme["nome"] == nomeFilme:
-						return 0, filme
-		else:
-			return 0, dados["filmes"]
-	
-	return -1, {}
+def buscaFilme(dados, query):
+    if not query or not query.strip():
+        return 1, []
+    q = query.strip().lower()
+    resultados = [f for f in dados.get("filmes", []) if q in f.get("nome", "").lower()]
+    if not resultados:
+        return 1, []
+    return 0, resultados
