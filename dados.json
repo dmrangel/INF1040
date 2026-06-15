@@ -3,149 +3,709 @@
     "u1": {
       "id": "u1",
       "nome": "davi",
-      "senha": "123",
+      "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
       "interesses": [
-        ["acao", 5],
-        ["ficcao", 4]
+        [
+          "acao",
+          5
+        ],
+        [
+          "ficcao",
+          5
+        ],
+        [
+          "aventura",
+          5
+        ],
+        [
+          "animacao",
+          5
+        ],
+        [
+          "drama",
+          5
+        ],
+        [
+          "policial",
+          5
+        ],
+        [
+          "suspense",
+          5
+        ],
+        [
+          "terror",
+          5
+        ]
       ]
     },
     "u2": {
       "id": "u2",
       "nome": "lis",
-      "senha": "abc",
+      "senha": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
       "interesses": []
     },
     "u3": {
       "id": "u3",
       "nome": "bento",
-      "senha": "xyz",
+      "senha": "3608bca1e44ea6c4d268eb6db02260269892c0b42b86bbf1e77a6fa16c3c9282",
       "interesses": [
-        ["drama", 3]
+        [
+          "drama",
+          3
+        ]
       ]
     },
     "u4": {
       "id": "u4",
       "nome": "tiago",
-      "senha": "456",
+      "senha": "b3a8e0e1f9ab1bfe3a36f231f676f78bb30a519d2b21e6c530c0eee8ebb4a5d0",
       "interesses": [
-        ["terror", 4],
-        ["suspense", 5]
+        [
+          "terror",
+          4
+        ],
+        [
+          "suspense",
+          5
+        ]
       ]
     },
     "u5": {
       "id": "u5",
       "nome": "carla",
-      "senha": "789",
+      "senha": "35a9e381b1a27567549b5f8a6f783c167ebf809f1c4d6a9e367240484d8ce281",
       "interesses": [
-        ["romance", 5],
-        ["comedia", 3]
+        [
+          "romance",
+          5
+        ],
+        [
+          "comedia",
+          3
+        ]
       ]
     },
     "u6": {
       "id": "u6",
       "nome": "nuno",
-      "senha": "qwe",
+      "senha": "489cd5dbc708c7e541de4d7cd91ce6d0f1613573b7fc5b40d3942ccb9555cf35",
       "interesses": [
-        ["acao", 4],
-        ["aventura", 4]
+        [
+          "acao",
+          4
+        ],
+        [
+          "aventura",
+          4
+        ]
       ]
     },
     "u7": {
       "id": "u7",
       "nome": "sofia",
-      "senha": "rty",
+      "senha": "2ec9b234f9794947d51f3528eb36c37d340f7da1d4ca00030649aabd3172bb5b",
       "interesses": [
-        ["documentario", 5]
+        [
+          "documentario",
+          5
+        ]
       ]
     },
     "u8": {
       "id": "u8",
       "nome": "miguel",
-      "senha": "uio",
+      "senha": "95e17a94411dbc199b8ac626d722f42a63d4521f62ddd78bf3dffa615471097b",
       "interesses": [
-        ["nacional", 4],
-        ["comedia", 4]
+        [
+          "nacional",
+          4
+        ],
+        [
+          "comedia",
+          4
+        ]
       ]
     },
     "u9": {
       "id": "u9",
       "nome": "pedro",
-      "senha": "asd",
+      "senha": "688787d8ff144c502c7f5cffaafe2cc588d86079f9de88304c26b0cb99ce91c6",
       "interesses": [
-        ["ficcao", 5],
-        ["suspense", 4]
+        [
+          "ficcao",
+          5
+        ],
+        [
+          "suspense",
+          4
+        ]
       ]
     },
     "u10": {
       "id": "u10",
       "nome": "ines",
-      "senha": "fgh",
+      "senha": "36e0fd847d927d68475f32a94efff30812ee3ce87c7752973f4dd7476aa2e97e",
       "interesses": [
-        ["animacao", 5],
-        ["aventura", 5]
+        [
+          "animacao",
+          5
+        ],
+        [
+          "aventura",
+          5
+        ]
       ]
+    },
+    "u11": {
+      "id": "u11",
+      "nome": "joao",
+      "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "interesses": [
+        [
+          "nacional",
+          5
+        ],
+        [
+          "drama",
+          4
+        ],
+        [
+          "romance",
+          3
+        ]
+      ]
+    },
+    "u12": {
+      "id": "u12",
+      "nome": "ana",
+      "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "interesses": [
+        [
+          "romance",
+          5
+        ],
+        [
+          "drama",
+          5
+        ],
+        [
+          "nacional",
+          3
+        ]
+      ]
+    },
+    "u13": {
+      "id": "u13",
+      "nome": "lucas",
+      "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "interesses": [
+        [
+          "acao",
+          5
+        ],
+        [
+          "ficcao",
+          4
+        ],
+        [
+          "aventura",
+          3
+        ]
+      ]
+    },
+    "u14": {
+      "id": "u14",
+      "nome": "julia",
+      "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "interesses": [
+        [
+          "animacao",
+          5
+        ],
+        [
+          "comedia",
+          4
+        ],
+        [
+          "fantasia",
+          4
+        ]
+      ]
+    },
+    "u15": {
+      "id": "u15",
+      "nome": "rafael",
+      "senha": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
+      "interesses": [
+        [
+          "policial",
+          5
+        ],
+        [
+          "suspense",
+          5
+        ],
+        [
+          "terror",
+          3
+        ]
+      ]
+    },
+    "cb86fecb-e64b-4c2c-90fa-8aac717c5649": {
+      "id": "cb86fecb-e64b-4c2c-90fa-8aac717c5649",
+      "nome": "novo_usuario",
+      "senha": "776c810fd3c77023aca92719a9f636c61f95873d1d786ea42acdab080f098542",
+      "interesses": []
+    },
+    "d9742dd2-90c0-4387-8938-a90e413a4c0a": {
+      "id": "d9742dd2-90c0-4387-8938-a90e413a4c0a",
+      "nome": "usuario_existente",
+      "senha": "55a5e9e78207b4df8699d60886fa070079463547b095d1a05bc719bb4e6cd251",
+      "interesses": []
+    },
+    "b75347e9-1695-4d78-9e47-31c31e936f74": {
+      "id": "b75347e9-1695-4d78-9e47-31c31e936f74",
+      "nome": "usuario_login",
+      "senha": "f9beb8c37d7bb3ace865684b2908418e6a29ecc5c6b9f2a32a2de3f1e7128851",
+      "interesses": []
+    },
+    "a9d0ab07-b442-4912-a52f-7a968276fdaf": {
+      "id": "a9d0ab07-b442-4912-a52f-7a968276fdaf",
+      "nome": "usuario_com_senha",
+      "senha": "8b83d065ff103f999a00c44b882e0d224410780f9c52891a35ca026aa0ae3d7e",
+      "interesses": []
     }
   },
   "filmes": [
     {
       "id": "f1",
       "nome": "matrix",
-      "generos": ["acao", "ficcao"]
+      "generos": [
+        "acao",
+        "ficcao"
+      ]
     },
     {
       "id": "f2",
       "nome": "o auto da compadecida",
-      "generos": ["comedia", "nacional"]
+      "generos": [
+        "comedia",
+        "nacional"
+      ]
     },
     {
       "id": "f3",
       "nome": "cidade de deus",
-      "generos": ["drama", "acao"]
+      "generos": [
+        "drama",
+        "acao",
+        "nacional"
+      ]
     },
     {
       "id": "f4",
       "nome": "o senhor dos aneis",
-      "generos": ["aventura", "fantasia"]
+      "generos": [
+        "aventura",
+        "fantasia"
+      ]
     },
     {
       "id": "f5",
       "nome": "o poderoso chefao",
-      "generos": ["drama", "policial"]
+      "generos": [
+        "drama",
+        "policial"
+      ]
     },
     {
       "id": "f6",
       "nome": "interestelar",
-      "generos": ["ficcao", "drama"]
+      "generos": [
+        "ficcao",
+        "drama",
+        "aventura"
+      ]
     },
     {
       "id": "f7",
       "nome": "clube da luta",
-      "generos": ["drama", "suspense"]
+      "generos": [
+        "drama",
+        "suspense"
+      ]
     },
     {
       "id": "f8",
       "nome": "o iluminado",
-      "generos": ["terror", "suspense"]
+      "generos": [
+        "terror",
+        "suspense"
+      ]
     },
     {
       "id": "f9",
       "nome": "toy story",
-      "generos": ["animacao", "aventura"]
+      "generos": [
+        "animacao",
+        "aventura",
+        "comedia"
+      ]
     },
     {
       "id": "f10",
       "nome": "vingadores",
-      "generos": ["acao", "aventura"]
+      "generos": [
+        "acao",
+        "aventura",
+        "ficcao"
+      ]
     },
     {
       "id": "f11",
       "nome": "parasita",
-      "generos": ["suspense", "drama"]
+      "generos": [
+        "suspense",
+        "drama"
+      ]
     },
     {
       "id": "f12",
       "nome": "central do brasil",
-      "generos": ["drama", "nacional"]
+      "generos": [
+        "drama",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f13",
+      "nome": "a origem",
+      "generos": [
+        "ficcao",
+        "suspense",
+        "acao"
+      ]
+    },
+    {
+      "id": "f14",
+      "nome": "pulp fiction",
+      "generos": [
+        "policial",
+        "drama"
+      ]
+    },
+    {
+      "id": "f15",
+      "nome": "o silencio dos inocentes",
+      "generos": [
+        "terror",
+        "suspense",
+        "policial"
+      ]
+    },
+    {
+      "id": "f16",
+      "nome": "sete",
+      "generos": [
+        "policial",
+        "suspense",
+        "drama"
+      ]
+    },
+    {
+      "id": "f17",
+      "nome": "o rei leao",
+      "generos": [
+        "animacao",
+        "aventura",
+        "drama"
+      ]
+    },
+    {
+      "id": "f18",
+      "nome": "shrek",
+      "generos": [
+        "animacao",
+        "comedia",
+        "fantasia"
+      ]
+    },
+    {
+      "id": "f19",
+      "nome": "de volta para o futuro",
+      "generos": [
+        "ficcao",
+        "aventura",
+        "comedia"
+      ]
+    },
+    {
+      "id": "f20",
+      "nome": "gladiador",
+      "generos": [
+        "acao",
+        "drama",
+        "historico"
+      ]
+    },
+    {
+      "id": "f21",
+      "nome": "batman: o cavaleiro das trevas",
+      "generos": [
+        "acao",
+        "suspense"
+      ]
+    },
+    {
+      "id": "f22",
+      "nome": "o exterminador do futuro",
+      "generos": [
+        "acao",
+        "ficcao"
+      ]
+    },
+    {
+      "id": "f23",
+      "nome": "jurassic park",
+      "generos": [
+        "aventura",
+        "ficcao",
+        "suspense"
+      ]
+    },
+    {
+      "id": "f24",
+      "nome": "tropa de elite",
+      "generos": [
+        "acao",
+        "policial",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f25",
+      "nome": "carandiru",
+      "generos": [
+        "drama",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f26",
+      "nome": "forrest gump",
+      "generos": [
+        "drama",
+        "romance",
+        "comedia"
+      ]
+    },
+    {
+      "id": "f27",
+      "nome": "titanic",
+      "generos": [
+        "romance",
+        "drama"
+      ]
+    },
+    {
+      "id": "f28",
+      "nome": "whiplash",
+      "generos": [
+        "drama",
+        "musical"
+      ]
+    },
+    {
+      "id": "f29",
+      "nome": "coco",
+      "generos": [
+        "animacao",
+        "aventura",
+        "drama"
+      ]
+    },
+    {
+      "id": "f30",
+      "nome": "up: altas aventuras",
+      "generos": [
+        "animacao",
+        "aventura",
+        "drama"
+      ]
+    },
+    {
+      "id": "f31",
+      "nome": "divertida mente",
+      "generos": [
+        "animacao",
+        "comedia",
+        "drama"
+      ]
+    },
+    {
+      "id": "f32",
+      "nome": "o homem de ferro",
+      "generos": [
+        "acao",
+        "ficcao",
+        "aventura"
+      ]
+    },
+    {
+      "id": "f33",
+      "nome": "guardioes da galaxia",
+      "generos": [
+        "acao",
+        "ficcao",
+        "comedia"
+      ]
+    },
+    {
+      "id": "f34",
+      "nome": "alien: o oitavo passageiro",
+      "generos": [
+        "ficcao",
+        "terror",
+        "suspense"
+      ]
+    },
+    {
+      "id": "f35",
+      "nome": "o resgate do soldado ryan",
+      "generos": [
+        "guerra",
+        "drama",
+        "historico"
+      ]
+    },
+    {
+      "id": "f36",
+      "nome": "schindlers list",
+      "generos": [
+        "drama",
+        "historico",
+        "guerra"
+      ]
+    },
+    {
+      "id": "f37",
+      "nome": "um sonho de liberdade",
+      "generos": [
+        "drama"
+      ]
+    },
+    {
+      "id": "f38",
+      "nome": "goodfellas: os bons companheiros",
+      "generos": [
+        "policial",
+        "drama"
+      ]
+    },
+    {
+      "id": "f39",
+      "nome": "o lobo de wall street",
+      "generos": [
+        "drama",
+        "comedia",
+        "policial"
+      ]
+    },
+    {
+      "id": "f40",
+      "nome": "la la land: cantando estacoes",
+      "generos": [
+        "romance",
+        "drama",
+        "musical"
+      ]
+    },
+    {
+      "id": "f41",
+      "nome": "o senhor das armas",
+      "generos": [
+        "acao",
+        "drama",
+        "policial"
+      ]
+    },
+    {
+      "id": "f42",
+      "nome": "bicho de sete cabecas",
+      "generos": [
+        "drama",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f43",
+      "nome": "bacurau",
+      "generos": [
+        "suspense",
+        "acao",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f44",
+      "nome": "aquarius",
+      "generos": [
+        "drama",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f45",
+      "nome": "como nossos pais",
+      "generos": [
+        "drama",
+        "romance",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f46",
+      "nome": "o beijo no asfalto",
+      "generos": [
+        "drama",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f47",
+      "nome": "o homem do futuro",
+      "generos": [
+        "ficcao",
+        "comedia",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f48",
+      "nome": "vai que cola",
+      "generos": [
+        "comedia",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f49",
+      "nome": "lisbela e o prisioneiro",
+      "generos": [
+        "comedia",
+        "romance",
+        "nacional"
+      ]
+    },
+    {
+      "id": "f50",
+      "nome": "dois filhos de francisco",
+      "generos": [
+        "drama",
+        "musical",
+        "nacional"
+      ]
     }
   ]
 }
