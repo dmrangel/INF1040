@@ -9,9 +9,9 @@ except ImportError:
     filme = None
 
 try:
-	from modules import recomendacoes
+	from modules import recomendation
 except ImportError:
-    recomendacoes = None
+    recomendation = None
 
 try:
 	from modules import pesquisa
@@ -41,10 +41,10 @@ def search(dados):
 					st.error("Erro")
 
 def recomendation(dados):
-	if recomendacoes:
+	if recomendation:
 		if "usuario_logado" in st.session_state:
 			id_usuario = st.session_state["usuario_logado"]["id"]
-			list_recomendacoes = recomendacoes.buscaRecomendacoes(id_usuario)
+			list_recomendacoes = recomendation.buscaRecomendacoes(id_usuario)
 		else:
 			filmes = filme.buscaFilme(dados, None)
 
