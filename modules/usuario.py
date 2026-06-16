@@ -1,8 +1,6 @@
-from modules import arquivo
 from modules.codigos import ERRO, SUCESSO, USUARIO_NAO_EXISTENTE
 
-def buscaUsuario(nome):
-    dados = arquivo.carregaJson()
+def buscaUsuario(dados, nome):
     if dados is None:
         return (ERRO, None)
     for u in dados["usuarios"].values():

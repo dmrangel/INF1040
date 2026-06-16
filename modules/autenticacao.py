@@ -1,6 +1,5 @@
 import uuid
 import hashlib
-from modules import arquivo
 from modules.codigos import (
     ERRO, SUCESSO, USUARIO_EXISTENTE,
     USUARIO_NAO_EXISTENTE, SENHA_INVALIDA, SENHA_INCORRETA,
@@ -15,11 +14,10 @@ def _gerar_hash_senha(senha):
 def _validar_forca_senha(senha):
     return len(senha) >= 6
 
-def registraUsuario(nomeUser: str, senhaUser: str) -> tuple:
+def registraUsuario(dados, nomeUser: str, senhaUser: str) -> tuple:
     if not _validar_forca_senha(senhaUser):
         return (SENHA_INVALIDA, None)
 
-    dados = arquivo.carregaJson()
     if dados is None:
         return (ERRO, None)
 
@@ -35,13 +33,9 @@ def registraUsuario(nomeUser: str, senhaUser: str) -> tuple:
         "interesses": []
     }
 
-    if not arquivo.salvaJson(dados):
-        return (ERRO, None)
-
     return (SUCESSO, novo_id)
 
-def loginUsuario(nomeUser: str, senhaUser: str) -> tuple:
-    dados = arquivo.carregaJson()
+def loginUsuario(dados, nomeUser: str, senhaUser: str) -> tuple:
     if dados is None:
         return (ERRO, None)
 
