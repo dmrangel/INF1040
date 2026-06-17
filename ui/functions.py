@@ -49,6 +49,8 @@ def search(dados):
                     st.session_state.search_results = None
                     st.session_state.search_error = True
 
+    research(dados)
+
     if st.session_state.search_results is not None:
         st.markdown("### Resultados")
         _render_row(st.session_state.search_results)
@@ -67,7 +69,8 @@ def recommendation(dados):
         id_usuario = st.session_state["usuario_logado"]["id"]
         code, result = recomendacoes.buscaRecomendacoes(dados, id_usuario)
         if code == 0 and result:
-            todos_filmes = result
+            filmes_por_id = {str(f["id"]): f for f in dados.get("filmes", [])}
+            todos_filmes = [filmes_por_id[i] for i in result if i in filmes_por_id]
 
     if not todos_filmes:
         return
@@ -81,7 +84,10 @@ def login(dados):
         st.session_state.logado = False
     if not st.session_state.logado:
         with login_reg:
-            st.page_link("pages/login.py", label="Entrar")
+            if st.button("Entrar"):
+                st.session_state.search_results = None
+                st.session_state.search_error = False
+                st.switch_page("pages/login.py")
     else:
         with login_reg:
             nome_usuario = st.session_state["usuario_logado"]["nome"]
@@ -98,7 +104,10 @@ def research(dados):
     if not st.session_state.pesquisa and st.session_state.logado:
         _, center, _ = st.columns([1, 2, 1])
         with center:
-            st.page_link("pages/research.py", label="Realize a pesquisa de interesses!")
+            if st.button("Realize a pesquisa de interesses!", type="primary", use_container_width=True):
+                st.session_state.search_results = None
+                st.session_state.search_error = False
+                st.switch_page("pages/research.py")
 
 
 def feed(dados):

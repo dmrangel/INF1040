@@ -8,9 +8,11 @@ from ui.functions import (
     login, search, recommendation, feed, research
 )
 
-
 def main():
-    dados = arquivo.carregaJson()
+    if "dados" not in st.session_state:
+        st.session_state["dados"] = arquivo.carregaJson()
+
+    dados = st.session_state["dados"]
 
     login(dados)
 
@@ -23,8 +25,6 @@ def main():
     recommendation(dados)
 
     feed(dados)
-
-    research(dados)
 
     arquivo.salvaJson(dados)
 

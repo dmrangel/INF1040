@@ -8,8 +8,8 @@ try:
 except ImportError:
 	usuario = autenticacao = None
 
-def _set_logged_in(nome_usuario):
-	_, info = usuario.buscaUsuario(nome_usuario)
+def _set_logged_in(dados, nome_usuario):
+	_, info = usuario.buscaUsuario(dados, nome_usuario)
 	st.session_state["usuario_logado"] = info
 	st.session_state["logado"] = True
 
@@ -33,9 +33,10 @@ def main():
 			elif autenticacao is None or usuario is None:
 				st.switch_page("app.py")
 			else:
-				code, _ = autenticacao.loginUsuario(user, pw)
+				dados = st.session_state.get("dados")
+				code, _ = autenticacao.loginUsuario(dados, user, pw)
 				if code == SUCESSO:
-					_set_logged_in(user)
+					_set_logged_in(dados, user)
 					st.switch_page("app.py")
 				elif code in (USUARIO_NAO_EXISTENTE, SENHA_INCORRETA):
 					st.error("Dados incorretos ou usuário não existente")
@@ -49,9 +50,10 @@ def main():
 			elif autenticacao is None or usuario is None:
 				st.switch_page("app.py")
 			else:
-				code, _ = autenticacao.registraUsuario(user, pw)
+				dados = st.session_state.get("dados")
+				code, _ = autenticacao.registraUsuario(dados, user, pw)
 				if code == SUCESSO:
-					_set_logged_in(user)
+					_set_logged_in(dados, user)
 					st.switch_page("app.py")
 				elif code == USUARIO_EXISTENTE:
 					st.error("Usuário já existente")

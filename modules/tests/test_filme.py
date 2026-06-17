@@ -30,17 +30,17 @@ def test_busca_multiplos_resultados(mock_dados):
 
 def test_busca_sem_resultado(mock_dados):
     code, resultados = filme.buscaFilme(mock_dados["data"], "xyzabcnaoexiste")
-    assert code == 1
+    assert code == -1
     assert resultados == []
 
 def test_busca_query_vazia(mock_dados):
     code, resultados = filme.buscaFilme(mock_dados["data"], "")
-    assert code == 1
+    assert code == -1
     assert resultados == []
 
 def test_busca_query_so_espacos(mock_dados):
     code, resultados = filme.buscaFilme(mock_dados["data"], "   ")
-    assert code == 1
+    assert code == -1
     assert resultados == []
 
 def test_busca_retorna_campos_completos(mock_dados):
