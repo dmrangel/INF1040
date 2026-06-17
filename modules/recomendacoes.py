@@ -1,19 +1,21 @@
 from modules.filme import buscaFilmesRecomendados
 from modules.usuario import buscaInteresses
+from modules.codigos import (
+    ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES,INTERESSES_INVALIDOS
+)
 
 def buscaRecomendacoes(dados, userID):
     aux = buscaInteresses(dados, userID)
 
-    if (aux[0] == -1):
+    if (aux[0] == ERRO):
         #print("Modulo recomendacoes: Modulo Usuario retornou erro!\n")
-        return (-1, [])
-    elif (aux[0] == 2):
+        return (ERRO, [])
+    elif (aux[0] == USUARIO_NAO_EXISTENTE):
         #print("Modulo recomendacoes: Usuário não existente!\n")
-        return (2, [])
-    #TODO discutir se a saída 5 e 6 pode ser unificada
-    elif (aux[0] == 6):
+        return (USUARIO_NAO_EXISTENTE, [])
+    elif (aux[0] == SEM_INTERESSES):
         #print("Modulo recomendacoes: Usuario não possui interesses!\n")
-        return (5, [])
+        return (SEM_RECOMENDACOES, [])
 
     listaInteressesComPesos = aux[1]
 
@@ -23,30 +25,26 @@ def buscaRecomendacoes(dados, userID):
 
     aux_filmes = buscaFilmesRecomendados(dados, listaGenerosApenas)
 
-    if aux_filmes[0] == -1:
+    if aux_filmes[0] == ERRO:
         #print("Modulo recomendacoes: Modulo Filmes retornou erro!\n")
-        return (-1, [])
-    elif aux_filmes[0] == 8: 
+        return (ERRO, [])
+    elif aux_filmes[0] == INTERESSES_INVALIDOS: 
         #print("Modulo recomendacoes: Não foi possível calcular a recomendação pois lista de interesses é inválida!\n")
-        return (7, [])    
+        return (ERRO_RECOMENDACOES, [])    
     
     filmes_completos = aux_filmes[1]
 
     try:
-        # 3. ALGORITMO DE PRIORIDADE e CÁLCULO DE SCORE
         filmes_com_score = []
         
         for filme in filmes_completos:
             score = 0
-            # Soma o peso de cada gênero do filme que coincide com o interesse do usuário
             for g in filme["generos"]:
                 if g in mapaPesos:
                     score += mapaPesos[g]
             
-            # Guarda o filme junto com o seu score calculado
             filmes_com_score.append((filme, score))
         
-        # Ordena a lista pelo score de forma DECRESCENTE (maiores scores na posição 0)
         filmes_com_score.sort(key=lambda x: x[1], reverse=True)
         
         lista_ids = [str(item[0]['id']) for item in filmes_com_score]
@@ -57,4 +55,4 @@ def buscaRecomendacoes(dados, userID):
     
     except Exception:
         #print("Modulo recomendacoes: Não foi possível calcular a recomendação!\n")
-        return (7, [])
+        return (ERRO_RECOMENDACOES, [])
