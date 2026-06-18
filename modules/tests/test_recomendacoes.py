@@ -1,7 +1,7 @@
 import pytest
 from modules import recomendacoes
 from modules.codigos import (
-    SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES,INTERESSES_INVALIDOS
+    SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES
 )
 
 def test_busca_recomendacoes_sucesso(mock_dados):
