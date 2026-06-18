@@ -5,8 +5,8 @@ from modules.codigos import ERRO, SUCESSO, USUARIO_NAO_EXISTENTE, SEM_INTERESSES
 #            estrutura de dicionário carregada de arquivo externo.
 #***********************************************************************
 
-# função buscaInteresses
-# Propósito:
+# buscaInteresses
+# Descrição:
 #   - Obter a lista de interesses de um usuário a partir de seu ID;
 #   - Retorna a lista de interesses (gênero, peso) de um usuário pelo ID
 #
@@ -43,7 +43,7 @@ def buscaInteresses(dados, id_usuario):
     return (SUCESSO, [(genero, peso) for genero, peso in interesses])  # converte de [[g, p], ...] para [(g, p), ...]
 
 
-# função buscaUsuario
+# buscaUsuario
 #
 # Descrição:
 #   Retorna o objeto completo de um usuário buscando pelo nome.

@@ -1,31 +1,41 @@
 """
 pesquisa.py  --  Modulo Pesquisa (dono: Joao Pedro Souza C de Oliveira).
-INF1040 - Projeto de Programacao Modular. Grupo 2, turma 3WA.
-
-Coleta a pesquisa de interesses do usuario logado e a persiste no objeto
-de dados em memoria (o app salva o dados.json ao final, via modules.arquivo).
-
-Convencao do projeto: toda funcao recebe o dicionario 'dados' como primeiro
-argumento, opera sobre ele e retorna uma tupla (codigo, conteudo).
-
-Funcoes (chamadas por pages/research.py):
-  criaInteresses(dados, userID, pesquisaInteresses)  -> (code, None)  # codes: -1, 0, 2
-  modificaInteresses(dados, userID, interesses)      -> (code, None)  # codes: -1, 0, 2, 8
-
-Formatos:
-  pesquisaInteresses : dict {genero(str): peso(int)}      ex: {"acao": 8, "drama": 5}
-  interesses         : list de pares (genero(str), peso(int))  ex: [("acao", 8), ("drama", 5)]
-  Armazenado em dados["usuarios"][userID]["interesses"] como [[genero, peso], ...],
-  formato lido por modules.usuario.buscaInteresses e usado por modules.recomendacoes.
 """
 
 from modules.codigos import (
     ERRO, SUCESSO, USUARIO_NAO_EXISTENTE, INTERESSES_INVALIDOS,
 )
 
+#***********************************************************************
+# Módulo: pesquisa
+# Descrição: Funções de criação e atualização dos interesses do usuário
+#            logado, persistindo os dados em memória via dicionário
+#            principal. A gravação em arquivo é responsabilidade do
+#            módulo modules.arquivo.
+#***********************************************************************
+
 
 # ------------------------- validacao interna -------------------------
 
+#-----------------------------------------------------------------------
+# _parValido (função interna)
+#
+# Descrição:
+#   Valida se um par (gênero, peso) é estruturalmente correto.
+#
+# Acoplamento:
+#   par   (list | tuple) – par a ser validado, esperado como (str, int)
+#
+# Retorno:
+#   (bool) – True se o par é válido; False caso contrário
+#
+# Assertivas de entrada:
+#   - par pode ser qualquer tipo; a função trata tipos inválidos internamente
+#
+# Assertivas de saída:
+#   - retorna True somente se: par tem exatamente 2 elementos, gênero é
+#     string não vazia, peso é int não booleano e maior ou igual a 1
+#-----------------------------------------------------------------------
 def _parValido(par):
     if not isinstance(par, (list, tuple)) or len(par) != 2:
         return False
@@ -39,6 +49,26 @@ def _parValido(par):
     return True
 
 
+#-----------------------------------------------------------------------
+# _listaInteressesValida (função interna)
+#
+# Descrição:
+#   Valida se uma lista de interesses é estruturalmente correta,
+#   verificando cada par e garantindo que não há gêneros repetidos.
+#
+# Acoplamento:
+#   interesses   (list) – lista de pares (gênero, peso) a ser validada
+#
+# Retorno:
+#   (bool) – True se a lista é válida; False caso contrário
+#
+# Assertivas de entrada:
+#   - interesses pode ser qualquer tipo; a função trata tipos inválidos internamente
+#
+# Assertivas de saída:
+#   - retorna True somente se: é uma lista não vazia, todos os pares são
+#     válidos segundo _parValido, e não há gêneros duplicados
+#-----------------------------------------------------------------------
 def _listaInteressesValida(interesses):
     if not isinstance(interesses, list) or len(interesses) == 0:
         return False
@@ -53,6 +83,27 @@ def _listaInteressesValida(interesses):
     return True
 
 
+#-----------------------------------------------------------------------
+# _transformaPesquisa (função interna)
+#
+# Descrição:
+#   Converte o dicionário {gênero: peso} recebido da pesquisa em uma
+#   lista de tuplas [(gênero, peso)] para uso interno.
+#
+# Acoplamento:
+#   pesquisaInteresses   (dict) – dicionário {str: int} com gêneros e pesos
+#
+# Retorno:
+#   (list[tuple]) – lista de tuplas (gênero, peso)
+#
+# Assertivas de entrada:
+#   - pesquisaInteresses deve ser um dict não vazio com chaves str e valores int
+#
+# Assertivas de saída:
+#   - retorna lista de tuplas equivalente ao dict de entrada
+#   - levanta ValueError se a estrutura for inválida; o chamador é
+#     responsável por capturar e tratar como ERRO
+#-----------------------------------------------------------------------
 def _transformaPesquisa(pesquisaInteresses):
     """Converte o dict {genero: peso} da pesquisa em lista [(genero, peso)].
     Levanta ValueError em estrutura invalida; criaInteresses captura e
@@ -71,13 +122,38 @@ def _transformaPesquisa(pesquisaInteresses):
 
 # ------------------------- funcoes do modulo -------------------------
 
+#-----------------------------------------------------------------------
+# modificaInteresses
+#
+# Descrição:
+#   Atualiza a lista de interesses de um usuário existente na estrutura
+#   de dados, substituindo completamente os interesses anteriores.
+#
+# Acoplamento:
+#   dados       (dict)       – estrutura de dados principal carregada do arquivo;
+#                              deve conter a chave "usuarios" mapeando UUIDs a objetos
+#   userID      (str)        – UUID do usuário a ter os interesses atualizados
+#   interesses  (list)       – lista de pares (gênero (str), peso (int))
+#
+# Retorno:
+#   (SUCESSO, None)              – interesses atualizados com sucesso
+#   (ERRO, None)                 – dados inválidos, não carregados ou exceção inesperada
+#   (USUARIO_NAO_EXISTENTE, None) – UUID não encontrado na base de usuários
+#   (INTERESSES_INVALIDOS, None) – lista de interesses não passa na validação
+#
+# Assertivas de entrada:
+#   - dados é None ou um dict com a chave "usuarios"
+#   - userID é uma string não vazia representando um UUID válido
+#   - interesses é uma lista de pares (str, int)
+#
+# Assertivas de saída:
+#   - o primeiro elemento da tupla é sempre um dos códigos definidos em modules.codigos
+#   - o segundo elemento é sempre None
+#   - se SUCESSO, dados["usuarios"][userID]["interesses"] contém a nova lista no
+#     formato [[genero, peso], ...] compatível com modules.usuario.buscaInteresses
+#   - os interesses anteriores são completamente substituídos pelos novos
+#-----------------------------------------------------------------------
 def modificaInteresses(dados, userID, interesses):
-    """Atualiza a lista de interesses de um usuario existente.
-      0  : sucesso
-      2  : usuario nao existente
-      8  : lista de interesses invalida
-      -1 : erro tecnico (ex.: dados nao carregados)
-    """
     try:
         if dados is None:
             return (ERRO, None)
@@ -91,13 +167,38 @@ def modificaInteresses(dados, userID, interesses):
         return (ERRO, None)
 
 
+#-----------------------------------------------------------------------
+# criaInteresses
+#
+# Descrição:
+#   Cria a lista de interesses de um usuário a partir do dicionário
+#   retornado pela pesquisa. Converte o formato dict para lista de tuplas
+#   e delega a persistência a modificaInteresses.
+#
+# Acoplamento:
+#   dados               (dict) – estrutura de dados principal carregada do arquivo;
+#                                deve conter a chave "usuarios" mapeando UUIDs a objetos
+#   userID              (str)  – UUID do usuário a ter os interesses criados
+#   pesquisaInteresses  (dict) – dicionário {gênero (str): peso (int)} vindo da pesquisa
+#
+# Retorno:
+#   (SUCESSO, None)              – interesses criados com sucesso
+#   (ERRO, None)                 – dados inválidos, falha na transformação ou exceção inesperada
+#   (USUARIO_NAO_EXISTENTE, None) – UUID não encontrado na base de usuários
+#
+# Assertivas de entrada:
+#   - dados é None ou um dict com a chave "usuarios"
+#   - userID é uma string não vazia representando um UUID válido
+#   - pesquisaInteresses é um dict {str: int} não vazio
+#
+# Assertivas de saída:
+#   - o primeiro elemento da tupla é sempre um dos códigos definidos em modules.codigos
+#   - o segundo elemento é sempre None
+#   - se SUCESSO, os interesses foram persistidos via modificaInteresses
+#   - INTERESSES_INVALIDOS de modificaInteresses é absorvido e retornado como ERRO,
+#     pois indica falha interna de processamento desta função, não input direto do usuário
+#-----------------------------------------------------------------------
 def criaInteresses(dados, userID, pesquisaInteresses):
-    """Cria a lista de interesses a partir da pesquisa (dict {genero: peso}).
-    Valida e transforma a pesquisa e delega a escrita a modificaInteresses.
-      0  : sucesso
-      2  : usuario nao existente
-      -1 : erro de processamento
-    """
     try:
         if dados is None:
             return (ERRO, None)
