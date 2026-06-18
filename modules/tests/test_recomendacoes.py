@@ -4,6 +4,7 @@ from modules.codigos import (
     SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, ERRO_RECOMENDACOES
 )
 
+# caso 1: recomendações geradas com sucesso e ordenadas por score decrescente
 def test_busca_recomendacoes_sucesso(mock_dados):
     code, info = recomendacoes.buscaRecomendacoes(mock_dados["data"], "u_alice")
     assert code == SUCESSO
@@ -15,24 +16,25 @@ def test_busca_recomendacoes_sucesso(mock_dados):
     posicao_interestelar = info.index("f11")
     assert posicao_matrix < posicao_interestelar
 
+# caso 2: UUID inexistente na base retorna USUARIO_NAO_EXISTENTE e lista vazia
 def test_busca_recomendacoes_usuario_nao_existente(mock_dados):
     code, info = recomendacoes.buscaRecomendacoes(mock_dados["data"], "fantasma")
     assert code == USUARIO_NAO_EXISTENTE
     assert info == []
 
-
+# caso 3: usuário sem interesses definidos retorna SEM_RECOMENDACOES e lista vazia
 def test_busca_recomendacoes_usuario_sem_interesses(mock_dados):
     code, info = recomendacoes.buscaRecomendacoes(mock_dados["data"], "u_bob")
     assert code == SEM_RECOMENDACOES
     assert info == []
 
-
+# caso 4: ranking retorna no máximo 10 filmes mesmo com muitos candidatos elegíveis
 def test_busca_recomendacoes_limite_ranking(mock_dados):
     # testa caso possuam mais do que 10 filmes que podem ser de interesse
     _, info = recomendacoes.buscaRecomendacoes(mock_dados["data"], "u1")
     assert len(info) <= 10
     
-
+# caso 5: falha no cálculo de score (filmes retornados como None) retorna ERRO_RECOMENDACOES
 def test_busca_recomendacoes_erro_calculo(mock_dados):
     # Salva a função original para não quebrar os outros testes
     funcao_original = recomendacoes.buscaFilmesRecomendados
