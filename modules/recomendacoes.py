@@ -1,7 +1,7 @@
 from modules.filme import buscaFilmesRecomendados
 from modules.usuario import buscaInteresses
 from modules.codigos import (
-    SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES
+    SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES, INTERESSES_INVALIDOS
 )
 
 def buscaRecomendacoes(dados, userID):
