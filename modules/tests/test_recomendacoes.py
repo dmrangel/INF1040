@@ -1,7 +1,7 @@
 import pytest
 from modules import recomendacoes
 from modules.codigos import (
-    SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES
+    SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, ERRO_RECOMENDACOES
 )
 
 def test_busca_recomendacoes_sucesso(mock_dados):
@@ -32,3 +32,17 @@ def test_busca_recomendacoes_limite_ranking(mock_dados):
     _, info = recomendacoes.buscaRecomendacoes(mock_dados["data"], "u1")
     assert len(info) <= 10
     
+
+def test_busca_recomendacoes_erro_calculo(mock_dados):
+    # Salva a função original para não quebrar os outros testes
+    funcao_original = recomendacoes.buscaFilmesRecomendados
+    
+    # Fazemos a função retornar SUCESSO, mas com dados que quebram o laço 'for' (None)
+    recomendacoes.buscaFilmesRecomendados = lambda dados, generos: (0, None)
+
+    try:
+        code, info = recomendacoes.buscaRecomendacoes(mock_dados["data"], "u_alice")
+        assert code == ERRO_RECOMENDACOES
+        assert info == []
+    finally:
+        recomendacoes.buscaFilmesRecomendados = funcao_original
