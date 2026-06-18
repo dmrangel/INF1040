@@ -1,7 +1,7 @@
 from modules.filme import buscaFilmesRecomendados
 from modules.usuario import buscaInteresses
 from modules.codigos import (
-    ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES,INTERESSES_INVALIDOS
+    SUCESSO, ERRO, USUARIO_NAO_EXISTENTE, SEM_RECOMENDACOES, SEM_INTERESSES, ERRO_RECOMENDACOES, INTERESSES_INVALIDOS
 )
 
 def buscaRecomendacoes(dados, userID):
@@ -21,16 +21,13 @@ def buscaRecomendacoes(dados, userID):
 
     mapaPesos = {item[0]: item[1] for item in listaInteressesComPesos}
 
-    listaGenerosApenas = list(mapaPesos.keys())
+    listaGenerosApenas = list(mapaPesos.keys()) 
 
     aux_filmes = buscaFilmesRecomendados(dados, listaGenerosApenas)
 
     if aux_filmes[0] == ERRO:
         #print("Modulo recomendacoes: Modulo Filmes retornou erro!\n")
         return (ERRO, [])
-    elif aux_filmes[0] == INTERESSES_INVALIDOS: 
-        #print("Modulo recomendacoes: Não foi possível calcular a recomendação pois lista de interesses é inválida!\n")
-        return (ERRO_RECOMENDACOES, [])    
     
     filmes_completos = aux_filmes[1]
 
@@ -51,7 +48,7 @@ def buscaRecomendacoes(dados, userID):
         ranking_final = lista_ids[:10]
         
         #print("Modulo recomendacoes: Retorno padrão de êxito\n")
-        return (0, ranking_final)
+        return (SUCESSO, ranking_final)
     
     except Exception:
         #print("Modulo recomendacoes: Não foi possível calcular a recomendação!\n")
